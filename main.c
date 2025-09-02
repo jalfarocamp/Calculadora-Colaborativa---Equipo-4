@@ -1,37 +1,51 @@
-#include <stdlib.h>
+#include <stdio.h>
+#include "suma.h"
+#include "resta.h"
+#include "multiplicacion.h"
 
-int resta(int a, int b){
-	return a-b;
-}
+int main(void) {
+    int op = 0, a, b, r = 0;
 
-void main (){
-	int op=0, a, b, r=0;
-	
-	printf("1 Suma\n");
-	printf("2 Resta\n");
-	printf("3 Multiplicacion\n");
-	printf("4 Salir\n");
-	
-	while(op!=4){
-	    printf("Ingresa la operacion a hacer\n");
-		scanf("%d", &op);
-		
-		if(op==4){
-			break;
-		}
-		
-		printf("\nIngresa el numero a:\n");
-		scanf("%d", &a);
-		printf("Ingresa el numero b:\n");
-		scanf("%d", &b);
-		
-		if(op==1){
-			
-		}else if(op==2){
-			r=resta(a,b);
-			printf("El resultado de la resta es: %d\n",r);
-		}else if(op==3){
-			
-		}
-	}
+    printf("----------------------------------------------------");
+    printf("\nIngrese el numero de la operacion que desea realizar");
+    printf("\n----------------------------------------------------");
+    printf("\n1. Suma");
+    printf("\n2. Resta");
+    printf("\n3. Multiplicacion");
+    printf("\n4. Salir");
+    printf("\n----------------------------------------------------\n");
+
+    while (op != 4) {
+        printf("\nSeleccione una opcion: ");
+        scanf("%d", &op);
+
+        if (op == 4) {
+            printf("\nSaliendo de la calculadora...\n");
+            break;
+        }
+
+        printf("Ingrese el numero a: ");
+        scanf("%d", &a);
+        printf("Ingrese el numero b: ");
+        scanf("%d", &b);
+
+        switch (op) {
+            case 1:
+                r = suma(a, b);
+                printf("El resultado de la suma es: %d\n", r);
+                break;
+            case 2:
+                r = resta(a, b);
+                printf("El resultado de la resta es: %d\n", r);
+                break;
+            case 3:
+                r = multiplicacion(a, b);
+                printf("El resultado de la multiplicacion es: %d\n", r);
+                break;
+            default:
+                printf("Opcion no valida. Intente nuevamente.\n");
+        }
+    }
+
+    return 0;
 }

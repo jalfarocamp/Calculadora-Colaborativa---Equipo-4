@@ -1,6 +1,8 @@
+#ifndef MULTIPLICACION
+#define MULTIPLICACION
 
-
-// Definición de la función
-int multiplicar(int a, int b) {
+int multiplicacion(int a, int b) {
     return a * b;
 }
+
+#endif
